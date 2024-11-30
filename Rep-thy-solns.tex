@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem} 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage[english]{babel}
+\usepackage{mathtools}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{cite}
+\title{Representation Theory Solutions}
+\author{Saxon Supple}
+\date{November 2024}
+\usepackage{centernot}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+Consider a basis of $V$ to be a linear isomorphism $\beta : \mathbb{F}^n \to V$ (where $n = \dim V$). Associating to a matrix $A \in \mathrm{GL}(n, \mathbb{F})$ the linear operator $\theta_A : \mathbb{F}^n \to \mathbb{F}^n$, show that the map
+\[
+\Phi : \mathrm{GL}(n, \mathbb{F}) \to \mathrm{GL}(V) : A \mapsto \beta \theta_A \beta^{-1}
+\]
+is an isomorphism of groups.
+\end{exercise}
+\begin{proof}
+$\Phi$ is well-defined because the composition of isomorphisms is an isomorphism so $\beta\theta_A\beta^{-1}\in GL(V)\forall A\in GL(n,\mathbb{F})$. $\Phi(AB)=\beta \theta_{AB}\beta^{-1}=\beta \theta_{A}\beta^{-1}\beta \theta_{B}\beta^{-1}=\Phi(A)\Phi(B)$ so $\Phi$ is a homomorphism. Now let $\Phi(A)=\text{Id}_V$. Then $\beta \theta_A\beta^{-1}=\text{Id}_V\implies \theta_A\beta^{-1}=\beta^{-1}\text{Id}_V\implies \theta_A=\beta^{-1}\beta=\text{Id}_{\mathbb{F}^n}\implies A=I$. Thus $\Phi$ is injective. Given a $\phi\in GL(V)$ let $A$ be the matrix representing $\phi$ with respect to $\beta$. Then $\Phi(A)=\phi$. Thus $\Phi$ is surjective so is an isomorphism of groups.
+\end{proof}
+
+\begin{exercise}
+Let $\phi: G \to \mathrm{GL}(V)$ be a representation of $G$. Show that the map
+\[
+\alpha: G \times V \to V : (g, v) \mapsto g \cdot v = \phi(g)(v)
+\]
+is a linear $G$-action.
+\end{exercise}
+\begin{proof}
+Let $g,h\in G,v\in V$. Then $(gh)\cdot v=\phi(gh)(v)=\phi(g)(\phi(h)(v))=\phi(g)(h\cdot v)=g\cdot(h\cdot v)$.
+$e\cdot v=\phi(e)(v)=\text{Id}_V(v)=v$. Thus $\alpha$ is a $G$-action.
+Let $\lambda,\mu\in\mathbb{F}$ and $v,w\in V$. Then $g\cdot(\lambda v+\mu w)=\phi(g)(\lambda v+\mu w)=\lambda\phi(g)v+\mu\phi(g)w=\lambda(g\cdot v)+\mu(g\cdot w)$. Thus $\alpha$ is a linear $G$-action.
+\end{proof}
+
+\begin{exercise}
+Let $\alpha : G \times X \to X : (g, x) \mapsto g \cdot x$ be a $G$-action and $\tilde{\alpha} : G \times \mathbb{F}X \to \mathbb{F}X : (g, f) \mapsto g \cdot f$ be its linearisation. Let $\{\delta_x : x \in X\}$ be the standard basis of $\mathbb{F}X$. 
+
+\noindent Show that $g \cdot \delta_x = \delta_{g \cdot x}$. Deduce that the linearised action can be characterised by
+\[
+g \cdot \sum_{x \in X} \lambda_x \delta_x = \sum_{x \in X} \lambda_x \delta_{g \cdot x}.
+\]
+\end{exercise}
+\begin{proof}
+$(g\cdot\delta_x)(y)=\delta_x(g^{-1}\cdot y)$ which is $1$ iff $g^{-1}\cdot y=x\iff y=g\cdot x$ and $0$ otherwise. Thus $g \cdot \delta_x = \delta_{g \cdot x}$. By linearity, $g \cdot \sum_{x \in X} \lambda_x \delta_x=\sum_{x \in X} \lambda_x g\cdot\delta_x=\sum_{x \in X} \lambda_x \delta_{g \cdot x}$
+\end{proof}
+
+
+\begin{exercise}
+Find $n$ different degree $1$ representations of $\mathbb{Z}_n$ over $\mathbb{C}$ and determine which are faithful.
+\end{exercise}
+\begin{proof}
+$\rho_k:\mathbb{Z}_n\to\mathbb{C}^{*}:a\mapsto\omega^{ak}$ where $\omega=e^{\frac{2\pi i}{n}}$ and $0\leq k\leq n-1$ are $n$ degree $1$ representations. They're homomorphisms since $\rho_k(a+b)=\omega^{(a+b)k}=\omega^{ak}\omega^{bk}=\rho_k(a)\rho_k(b)$. $\rho_k$ is faithful when its image is the set of all $n$'th roots of unity which occurs when $\omega^k$ has order $n$ which occurs when $k$ is coprime to $n$.
+\end{proof}
+
+
+
+\end{document}
