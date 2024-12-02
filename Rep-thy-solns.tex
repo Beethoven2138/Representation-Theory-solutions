@@ -173,7 +173,44 @@ show that the corresponding \( G \)-module \( V_{\mathbb{C}} = \mathbb{C}^2 \) i
 \begin{proof}
 Let $W\neq \{0\}$ be a $G$-submodule of $V$. Let $0\neq x\in W$. Then $\rho(1)(x)$ rotates $x$ by $\frac{2\pi}{3}$ radians and so $x$ and $\rho(1)(x)$ are linearly independent. Thus $\text{dim}(W)=2$ so $W=V$. Thus $V$ is irreducible.
 
-Let $W=\{(\lambda,\lambda i),\lambda\in\mathbb{C}\}$. Given $\lambda\in\mathbb{C}$, $\rho(1)(\lambda,\lambda i)=\lambda(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}),\text{sin}(\frac{2\pi}{3})+i\text{cos}(\frac{2\pi}{3}))=\lambda(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}),(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}))i)=(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}))(\lambda,\lambda i)\in W$. Similarly, $\rho(2)(\lambda,\lambda i)\in W$ so $W$ is a $G$-submodule. $\text{dim}(W)=1<\text{dim}(\mathbb{C}^2)=2$ so $W\neq V_\mathbb{C}$. Thus $V_\mathbb{C}$ is not irreducible.
+Let $W=\{(\lambda,\lambda i),\lambda\in\mathbb{C}\}$. Given $\lambda\in\mathbb{C}^*$, $\rho(1)(\lambda,\lambda i)=\lambda(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}),\text{sin}(\frac{2\pi}{3})+i\text{cos}(\frac{2\pi}{3}))=\lambda(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}),(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}))i)=(\text{cos}(\frac{2\pi}{3})-i\text{sin}(\frac{2\pi}{3}))(\lambda,\lambda i)\in W$. Similarly, $\rho(2)(\lambda,\lambda i)\in W$ so $W$ is a $G$-submodule. $\text{dim}(W)=1<\text{dim}(\mathbb{C}^2)=2$ so $W\neq V_\mathbb{C}$. Thus $V_\mathbb{C}$ is not irreducible.
 \end{proof}
+
+\begin{exercise}
+If \( G \) acts on a non-empty set \( X \), then the linearisation \( V = \mathbb{F}X \) contains two \( G \)-submodules:
+\[
+W_0 = \{ f \in \mathbb{F}X : \sum_{x \in X} f(x) = 0 \}, \quad
+W_1 = \{ f \in \mathbb{F}X : f \text{ is constant} \}.
+\]
+
+Show that, if \( \mathrm{char} \, \mathbb{F} \) does not divide \( |X| \), then \( V \) is a direct sum \( V = W_0 \oplus W_1 \). What happens if \( \mathrm{char} \, \mathbb{F} \) does divide \( |X| \)?
+
+\end{exercise}
+
+\begin{proof}
+Let $f\in W_0\cap W_1$. Then $f(x)=c\forall x\in X$ and $c|X|=0$. $|X|\neq0$ so $c=0$. Thus $W_0\cap W_1=\{0\}$. Let $f\in V$. Let $c=\sum_{x\in X}f(x)$. If $c=0$, then $f\in W_0$. Otherwise, define $g\in W_0$ by $g(x)=f(x)-\frac{c}{|X|}$ and $h\in W_1$ by $h(x)=\frac{c}{|X|}$. Then $f=g+h$. Thus $V=W_0\oplus W_1$.
+
+If $\text{char}\mathbb{F}$ divides $|X|$ then $W_1\subseteq W_0$.
+\end{proof}
+
+\begin{exercise}
+Let \( V \) and \( W \) be \( G \)-modules over a field \( \mathbb{F} \) and recall that 
+\(\mathrm{Hom}_{\mathbb{F}}(V, W)\) denotes the vector space of all linear maps from \( V \) to \( W \).
+
+\begin{itemize}
+    \item[(a)] Show that \(\mathrm{Hom}_{\mathbb{F}}(V, W)\) becomes a \( G \)-module if we define \( g \cdot T \) by
+    \[
+    (g \cdot T)(v) = g \cdot \big(T(g^{-1} \cdot v)\big),
+    \]
+    for \( T \in \mathrm{Hom}_{\mathbb{F}}(V, W) \), \( g \in G \), and \( v \in V \).
+
+    \item[(b)] The dual of \( V \) is \( V^* = \mathrm{Hom}_{\mathbb{F}}(V, \mathbb{F}) \). Show that \( V^* \) becomes a \( G \)-module if we define \( g \cdot f \) by
+    \[
+    (g \cdot f)(v) = f(g^{-1} \cdot v),
+    \]
+    for \( f \in V^* \), \( g \in G \), and \( v \in V \).
+\end{itemize}
+
+\end{exercise}
 
 \end{document}
