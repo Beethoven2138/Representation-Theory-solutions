@@ -190,7 +190,7 @@ Show that, if \( \mathrm{char} \, \mathbb{F} \) does not divide \( |X| \), then 
 \begin{proof}
 Let $f\in W_0\cap W_1$. Then $f(x)=c\forall x\in X$ and $c|X|=0$. $|X|\neq0$ so $c=0$. Thus $W_0\cap W_1=\{0\}$. Let $f\in V$. Let $c=\sum_{x\in X}f(x)$. If $c=0$, then $f\in W_0$. Otherwise, define $g\in W_0$ by $g(x)=f(x)-\frac{c}{|X|}$ and $h\in W_1$ by $h(x)=\frac{c}{|X|}$. Then $f=g+h$. Thus $V=W_0\oplus W_1$.
 
-If $\text{char}\mathbb{F}$ divides $|X|$ then $W_1\subseteq W_0$.
+If $\text{char }\mathbb{F}$ divides $|X|$ then $W_1\subseteq W_0$.
 \end{proof}
 
 \begin{exercise}
@@ -212,5 +212,19 @@ Let \( V \) and \( W \) be \( G \)-modules over a field \( \mathbb{F} \) and rec
 \end{itemize}
 
 \end{exercise}
+\begin{proof}
+\begin{itemize}
+    \item[(a)]Let $g,h\in G$. Then $((gh)\cdot T)(v)=(gh)\cdot(T((gh)^{-1}\cdot v))=g\cdot h\cdot(T(h^{-1}\cdot g^{-1}\cdot v))=(g\cdot h\cdot T)(v)$.
+
+    Clearly $e\cdot T=T$.
+
+    $(g\cdot(\lambda T + \mu F))(v)=g\cdot((\lambda T+\mu F)(g^{-1}\cdot v))=g\cdot (\lambda T(g^{-1}\cdot v)+\mu F(g^{-1}\cdot v))=\lambda(g\cdot T(g^{-1}\cdot v))+\mu(g\cdot F(g^{-1}\cdot v))=\lambda(g\cdot T)(v)+\mu(g\cdot F(v))$.
+    \item[(b)]Consider $\mathbb{F}$ to be a $G$-module equipped with the trivial action. The result then follows from part $(a)$.
+\end{itemize}
+\end{proof}
+
+\begin{proof}
+
+\end{proof}
 
 \end{document}
