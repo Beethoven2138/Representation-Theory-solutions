@@ -223,8 +223,63 @@ Let \( V \) and \( W \) be \( G \)-modules over a field \( \mathbb{F} \) and rec
 \end{itemize}
 \end{proof}
 
-\begin{proof}
+\begin{exercise}
+    
 
+     Let \( V \) be a \( G \)-module and define \( V^G = \{ v \in V : g \cdot v = v \ \forall g \in G \} \).
+    \begin{enumerate}
+        \item[(a)] Show that \( V^G \) is a \( G \)-submodule of \( V \).
+        \item[(b)] If \( U \) and \( V \) are \( G \)-modules and \( \mathrm{Hom}_F(U, V) \) is made into a \( G \)-module as in Exercise 2.4(a), show that \( \mathrm{Hom}_F(U, V)^G = \mathrm{Hom}_G(U, V) \), the subspace of \( G \)-linear maps.
+    \end{enumerate}
+\end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let $v,w\in V^G$ and let $\lambda,\mu\in\mathbb{F}$. Then given any $g\in G$, $g\cdot(\lambda v+\mu w)=\lambda(g\cdot v)+\mu(g\cdot w)=\lambda v+\mu w$. Thus $V^G$ is a linear subspace of $V$. Furthermore, $h\cdot(g\cdot v)=h\cdot v=v\forall h\in G$ so $g\cdot v\in V^G$. Thus $V^G$ is closed under the group action so is a $G$-submodule of $V$.
+    \item[(b)] Let $\theta\in\text{Hom}_{\mathbb{F}}(U,V)^G$. Let $u\in U,g\in G$. Then $g^{-1}\cdot\theta=\theta$ so $\theta(u)=g^{-1}\cdot(\theta((g^{-1})^{-1}\cdot u))\implies g\cdot\theta(u)=\theta(g\cdot u)$. Thus $\text{Hom}_{\mathbb{F}}(U,V)^G\subseteq \text{Hom}_G(U,V)$. Now let $\theta\in\text{Hom}_G(U,V)$. Then $\theta(g^{-1}\cdot u)=g^{-1}\cdot\theta(u)\implies (g\cdot\theta)(u)=\theta(u)$. Thus $\text{Hom}_{\mathbb{F}}(U,V)^G= \text{Hom}_G(U,V)$.
+\end{enumerate}
 \end{proof}
+
+
+\begin{exercise}
+
+     Let \( V = U \oplus W \) be a direct sum of \( G \)-modules. Show that for any \( G \)-module \( X \)
+    \[
+    \mathrm{Hom}_G(V, X) \cong \mathrm{Hom}_G(U, X) \oplus \mathrm{Hom}_G(W, X)
+    \]
+    and thus
+    \[
+    \dim \mathrm{Hom}_G(V, X) = \dim \mathrm{Hom}_G(U, X) + \dim \mathrm{Hom}_G(W, X).
+    \]
+\end{exercise}
+\begin{exercise}
+     Let \( U \) and \( X \) be two irreducible \( G \)-modules over \( \mathbb{C} \).
+    \begin{enumerate}
+        \item[(a)] Use Schur's Lemma to show that
+        \[
+        \dim \mathrm{Hom}_G(U, X) =
+        \begin{cases}
+        1 & \text{if } U \cong X, \\
+        0 & \text{if } U \ncong X.
+        \end{cases}
+        \]
+        \item[(b)] Deduce that, if \( X \) is an irreducible \( G \)-module and \( V = V_1 \oplus \cdots \oplus V_n \) is a direct sum of irreducible \( G \)-modules \( V_1, \dots, V_n \) with \( V_i \cong X \) for \( 1 \leq i \leq k \) and \( V_j \ncong X \) for \( j > k \), then
+        \[
+        \dim \mathrm{Hom}_G(V, X) = k.
+        \]
+    \end{enumerate}
+\end{exercise}
+\begin{exercise}
+     Let \( G = S_3 \) act tautologically on \( X = \{1, 2, 3\} \). Consider the linearisation \( V = \mathbb{C}X \) and (as in Example 1.26(b) of the notes) the submodule
+    \[
+    W_0 = \left\{ f \in \mathbb{C}X : \sum_{x \in X} f(x) = 0 \right\}.
+    \]
+    Show that \( W_0 \) is equivalent to the (unique) irreducible representation of degree 2 found in Theorem 1.31 of the notes.
+\end{exercise}
+\begin{exercise}
+     Show that, over \( \mathbb{C} \), all irreducible representations of the dihedral group \( D_{2n} \) have degree 1 or 2 and classify the irreducible representations of \( D_{2n} \) up to equivalence.
+    \begin{itemize}
+        \item (Hint: follow the method of Section 1.9 of the notes, i.e., the case of \( D_6 \).)
+    \end{itemize}
+\end{exercise}
 
 \end{document}
