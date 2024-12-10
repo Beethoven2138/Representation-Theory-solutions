@@ -224,8 +224,6 @@ Let \( V \) and \( W \) be \( G \)-modules over a field \( \mathbb{F} \) and rec
 \end{proof}
 
 \begin{exercise}
-    
-
      Let \( V \) be a \( G \)-module and define \( V^G = \{ v \in V : g \cdot v = v \ \forall g \in G \} \).
     \begin{enumerate}
         \item[(a)] Show that \( V^G \) is a \( G \)-submodule of \( V \).
@@ -241,7 +239,6 @@ Let \( V \) and \( W \) be \( G \)-modules over a field \( \mathbb{F} \) and rec
 
 
 \begin{exercise}
-
      Let \( V = U \oplus W \) be a direct sum of \( G \)-modules. Show that for any \( G \)-module \( X \)
     \[
     \mathrm{Hom}_G(V, X) \cong \mathrm{Hom}_G(U, X) \oplus \mathrm{Hom}_G(W, X)
@@ -251,6 +248,10 @@ Let \( V \) and \( W \) be \( G \)-modules over a field \( \mathbb{F} \) and rec
     \dim \mathrm{Hom}_G(V, X) = \dim \mathrm{Hom}_G(U, X) + \dim \mathrm{Hom}_G(W, X).
     \]
 \end{exercise}
+\begin{proof}
+We have a projection $\pi:V\to V:(u,w)\mapsto(0,w)$. Now consider $\Psi:\text{Hom}_G(V,X)\to \text{Hom}_G(V,X):\theta\mapsto\theta\circ\pi$. Given $\lambda,\mu\in\mathbb{F},\theta,\phi\in\text{Hom}_G(V,X)$ we have $\Psi(\lambda\theta+\mu\phi)=(\lambda\theta+\mu\phi)\circ\pi=\lambda\theta\circ\pi+\mu\phi\circ\pi=\lambda\Psi(\theta)+\mu\Psi(\phi)$ so $\Psi$ is linear. Furthermore, $\Psi^2(\theta)=\theta\circ\pi^2=\theta\circ\pi=\Psi(\theta)$ so $\Psi$ is a projection. $\theta\in\text{Ker }\Psi\iff\theta\circ\pi=0\iff\theta_{|W}=0$ so $\text{Ker }\Psi\cong\text{Hom}_G(U,X)$. Also, $\theta\in\text{Im }\Psi\iff\exists\phi\in\text{Hom}_G(V,W):\theta=\phi\circ\pi\iff \theta_{|U}=0$ so $\text{Im }\Psi\cong\text{Hom}_G(W,X)$. $\text{Hom}_G(V,X)=\text{Ker }\Psi\oplus\text{Im }\Psi$ so $\text{Hom}_G(V,X)\cong\text{Hom}_G(U,X)\oplus\text{Hom}_G(W,X)$.
+\end{proof}
+
 \begin{exercise}
      Let \( U \) and \( X \) be two irreducible \( G \)-modules over \( \mathbb{C} \).
     \begin{enumerate}
