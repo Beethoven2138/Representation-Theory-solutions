@@ -269,6 +269,16 @@ We have a $G$-linear projection $\pi:V\to V:u+w\mapsto w$. Now consider $\Psi:\t
         \]
     \end{enumerate}
 \end{exercise}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let $U\not\cong X$. Then by Schur's lemma, the only $G$-linear map in $\text{Hom}_G(U,X)$ is $0$.
+
+    Now let $U\cong X$. Then by Schur's lemma, every $\theta\in \text{Hom}_G(U,X)$ is either $0$ or an isomorphism. Let $\theta\in \text{Hom}_G(U,X)$ be an isomorphism and let $\phi\in \text{Hom}_G(U,X)$. Then $\theta^{-1}\circ\phi=\lambda\text{Id}_U$ so $\phi=\lambda\theta$. Thus $\text{Hom}_G(U,X)=\langle\theta\rangle$ so $\text{dim Hom}_G(U,X)=1$.
+    \item[(b)]  $\text{dim Hom}_G(V,X)=\sum_{i=1}^n\text{dim Hom}_G(V_i,X)=\sum_{i=1}^k\text{dim Hom}_G(V_i,X)=k$.
+\end{enumerate}
+\end{proof}
+
 \begin{exercise}
      Let \( G = S_3 \) act tautologically on \( X = \{1, 2, 3\} \). Consider the linearisation \( V = \mathbb{C}X \) and (as in Example 1.26(b) of the notes) the submodule
     \[
