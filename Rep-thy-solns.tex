@@ -286,6 +286,11 @@ We have a $G$-linear projection $\pi:V\to V:u+w\mapsto w$. Now consider $\Psi:\t
     \]
     Show that \( W_0 \) is equivalent to the (unique) irreducible representation of degree 2 found in Theorem 1.31 of the notes.
 \end{exercise}
+\begin{proof}
+We have that $\mathbb{C}X=W_0\oplus W_1$ where $W_1=\{f\in\mathbb{C}X:f\text{ is constant}\}$. $\text{Dim }W_1=1$ so $\text{Dim }W_0=\text{Dim }\mathbb{C}X-1=3-1=2$. Let $f\in W_0$ with $f\neq 0$ such that $\langle f\rangle$ is a $G$-submodule. WLOG say that $f(1)\neq 0$. Let $g=(12)\cdot f$ so that $g(1)=f(2),g(2)=f(1)$ and $g(3)=f(3)$. $g$ is a scalar multiple of $f$ so $g=\frac{f(2)}{f(1)}f$ and $g=f$ so $f(1)=f(2)$ which makes $f(3)=-2f(1)$. Now consider $h=(13)\cdot f$ so that $h(1)=f(3),h(2)=f(2)$ and $h(3)=f(1)$. Then $h=f$ and $h=\frac{f(3)}{f(1)}f=\frac{-2f(1)}{f(1)}f=-2f$ so $f=0$. But we assumed that $f\neq 0$ giving a contradiction. Thus $W_0$ is irreducible and so is equivalent to the unique irreducible representation of $S_3$ of degree $2$.
+\end{proof}
+
+
 \begin{exercise}
      Show that, over \( \mathbb{C} \), all irreducible representations of the dihedral group \( D_{2n} \) have degree 1 or 2 and classify the irreducible representations of \( D_{2n} \) up to equivalence.
     \begin{itemize}
