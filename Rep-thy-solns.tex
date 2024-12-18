@@ -319,4 +319,78 @@ Now suppose that $v=b\cdot v$. Then $\rho(b)=1$. $\rho(a)=1$ and $\rho(a)=-1$ bo
 None of these representations are equivalent since $\rho(a)$ and $\rho(b)$ have different pairs of eigenvalues for each degree one representation $\rho$.
 \end{proof}
 
+
+\begin{exercise}Consider the following representation of the additive group $\mathbb{Z}$:
+\[
+\rho : \mathbb{Z} \to \text{GL}(2, \mathbb{F}) : n \mapsto 
+\begin{pmatrix}
+1 & n \\
+0 & 1
+\end{pmatrix}.
+\]
+\begin{itemize}
+    \item[(a)] Show that there is only one 1-dimensional submodule of $\mathbb{F}^2$, as a $\mathbb{Z}$-module (via $\rho$).
+    \item[(b)] Deduce that Maschke's Theorem can fail for infinite groups and even for finite groups when $\mathbb{F}$ has characteristic $p > 0$.
+\end{itemize}
+\end{exercise}
+\begin{proof}
+\begin{itemize}
+    \item[(a)] Let $\langle(a,b)\rangle$ be a $1$-dimensional submodule of $\mathbb{F}^2$. Then $\rho(n)(a,b)=(a+nb,b)=\lambda_n(a,b)$ for some $\lambda_n\in\mathbb{F}$. If $b\neq0$ then $\lambda_n=1$ so $a+nb=a\forall n\in\mathbb{Z}$ which is impossible. Thus we need $b=0$. $\langle(a_1,0)\rangle=\langle(a_2,0)\rangle$ for any non-zero $a_1,a_2\in\mathbb{F}$ so $\langle(1,0)\rangle$ is the only $1$-dimensional submodule of $\mathbb{F}^2$.
+    \item[(b)] There would need to be another $1$-dimensional submodule of $\mathbb{F}^2$ for Maschke's theorem to hold. Suppose $\mathbb{F}$ has characteristic $p>0$ and $\mathbb{F}^2$ has representation \[
+\rho_p : \mathbb{Z}_p \to \text{GL}(2, \mathbb{F}) : n \mapsto 
+\begin{pmatrix}
+1 & n \\
+0 & 1
+\end{pmatrix}.
+\] Then $\rho(x)=\rho([x]_p)$ so as before there is only one $1$-dimensional submodule of $\mathbb{F}^2$.
+\end{itemize}
+\end{proof}
+
+\textbf{[Assume now that the base field $\mathbb{F}$ is $\mathbb{C}$ and $G$ is a finite group.]}
+
+\begin{exercise} Let $V$ be a nonzero $G$-module that is not irreducible. Show that there is a $G$-linear map $T : V \to V$ which is neither zero nor invertible. (\textit{Hint: use Maschke's Theorem.})
+\end{exercise}
+
+\begin{proof}
+By Maschke's theorem, $V=U\oplus W$ for non-zero $G$-submodules $U$ and $W$. Let $\pi$ be the projection map onto $U$. $\pi$ is then a $G$-linear map, is non-zero (since its image is $U$ which is non-zero) and is not invertible (since its kernel is $W$ which is non-zero).
+\end{proof}
+
+\begin{exercise} Let $U$ be an irreducible $G$-module and $V$ any $G$-module.
+\begin{itemize}
+    \item[(a)] Show that $V$ has an irreducible submodule isomorphic to $U$ if and only if there is a non-zero $G$-linear map $U \to V$.
+    \item[(b)] Show that $V$ has an irreducible submodule isomorphic to $U$ if and only if there is a non-zero $G$-linear map $V \to U$.
+\end{itemize}
+\end{exercise}
+\begin{proof}
+\begin{itemize}
+    \item[(a)]$(\implies)$ Let $W$ be an irreducible $G$-submodule of $V$ isomorphic to $U$. let $\theta:U\to W$ be the isomorphism. Then $\phi:U\to V$ given by $\phi(u)=\theta(u)\forall u\in U$ is a non-zero $G$-linear map.
+
+    $(\impliedby)$ Let $T:U\to V$ be a non-zero $G$-linear map. By the first isomorphism theorem, $U/\text{Ker }T\cong\text{Im }T$. $\text{Ker }T$ is a submodule of $U$ so can be either $\{0\}$ or $U$ since $U$ is irreducible. However, $T\neq 0$ so $\text{Ker }T=\{0\}$. Thus $\text{Im }T$ is a submodule of $V$ which is isomorphic to $U$. Furthermore, $\text{Im }T$ must be irreducible, since otherwise $U$ wouldn't be irreducible.
+    \item[(b)] $(\implies)$ Let $W$ be the irreducible submodule of $V$ isomorphic to $U$. Let $\theta:W\to U$ be the isomorphism and let $\pi:V\to W$ be the projection map onto $W$ which exists by Maschke's theorem. Then $\theta\circ\pi:V\to U$ is a non-zero $G$-linear map.
+
+    $(\impliedby)$ Let $T:V\to U$ be a non-zero $G$-linear map. $\text{Im }T$ is either $\{0\}$ or $U$ since $U$ is irreducible. However, if $\text{Im }T=\{0\}$ then $T=0$; a contradiction. Thus $\text{Im }T=U$. By Maschke's theorem there exists a $G$-submodule $W$ such that $V=\text{Ker }T\oplus W$. Let $\theta:W\to U$ be the restriction of $T$ to $W$. Then $\theta$ is injective with image $U$ so $U\cong W$. As before, $W$ must also be irreducible.
+\end{itemize}
+\end{proof}
+
+
+\begin{exercise} Suppose that all irreducible $G$-modules are 1-dimensional. Show that $G$ is abelian. (\textit{Hint: take a faithful $G$-module and decompose it into a direct sum of irreducible $G$-modules.})
+\end{exercise}
+\begin{exercise} Let $V$ be a 2-dimensional $G$-module and $\rho : G \to \text{GL}(V)$ the associated representation. Show that if $\text{Im } \rho$ is not abelian, then $V$ is irreducible. Deduce that the following degree 2 representation of $D_{2n}$ $(n \geq 3)$ is irreducible:
+\[
+\rho : D_{2n} \to \text{GL}(2, \mathbb{C}) : 
+\tau \mapsto 
+\begin{pmatrix}
+\omega & 0 \\
+0 & \omega^{-1}
+\end{pmatrix}, \quad 
+\sigma \mapsto 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix},
+\]
+where $\omega \in \mathbb{C}$ is any $n$th root of unity such that $\omega \neq \omega^{-1}$. Here $\tau$ and $\sigma$ are generators of $D_{2n}$ subject to the relations $\sigma^2 = 1$, $\tau^n = 1$, and $\tau\sigma = \sigma\tau^{-1}$.
+\end{exercise}
+
+
 \end{document}
