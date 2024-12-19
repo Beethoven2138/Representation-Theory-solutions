@@ -375,6 +375,10 @@ By Maschke's theorem, $V=U\oplus W$ for non-zero $G$-submodules $U$ and $W$. Let
 
 \begin{exercise} Suppose that all irreducible $G$-modules are 1-dimensional. Show that $G$ is abelian. (\textit{Hint: take a faithful $G$-module and decompose it into a direct sum of irreducible $G$-modules.})
 \end{exercise}
+\begin{proof}
+Consider the regular representation of $G$ with corresponding representation $\rho:G\to GL(\mathbb{C}G)$. By Maschke's theorem we can decompose $\mathbb{C}G$ into a direct sum of irreducible $G$-modules. Since all irreducible $G$-modules are $1$-dimensional, we have $\mathbb{C}G=V_1\oplus...\oplus V_{|G|}$ where each $V_i$ has degree $1$. Let $g\in G$ and let $v_i\in V_i\backslash\{0\}$ so that $v_1,...,v_{|G|}$ form a basis. Then $\rho(g)(v_i)=\lambda_i(g)v_i\forall i$ where $\lambda_i(g)\neq 0$ since $V_i$ is $1$-dimensional. The matrix representing $\rho(g)$ with respect to the basis $v_1,...,v_{|G|}$ is then diagonal for every $g\in G$ and diagonal matrices commute under multiplication so the image of $\rho$ is abelian. $\rho$ is faithful so by the first isomorphism theorem $G\cong G/\{0\}=G/\text{Ker }\rho\cong\text{Im }\rho$. Thus $G$ is abelian.
+\end{proof}
+
 \begin{exercise} Let $V$ be a 2-dimensional $G$-module and $\rho : G \to \text{GL}(V)$ the associated representation. Show that if $\text{Im } \rho$ is not abelian, then $V$ is irreducible. Deduce that the following degree 2 representation of $D_{2n}$ $(n \geq 3)$ is irreducible:
 \[
 \rho : D_{2n} \to \text{GL}(2, \mathbb{C}) : 
@@ -391,6 +395,49 @@ By Maschke's theorem, $V=U\oplus W$ for non-zero $G$-submodules $U$ and $W$. Let
 \]
 where $\omega \in \mathbb{C}$ is any $n$th root of unity such that $\omega \neq \omega^{-1}$. Here $\tau$ and $\sigma$ are generators of $D_{2n}$ subject to the relations $\sigma^2 = 1$, $\tau^n = 1$, and $\tau\sigma = \sigma\tau^{-1}$.
 \end{exercise}
+\begin{proof}
+Suppose that $V$ is reducible. Then by Maschke's theorem $V=U\oplus W$ where $U$ and $W$ have dimension $1$. We have distinct $g,h\in G$ such that $\rho(g)\rho(h)\neq\rho(h)\rho(g)$. Since $U$ is $1$-dimensional, $\rho(g)_{|U}=\lambda\text{Id}_U,\rho(h)_{|U}=\mu\text{Id}_U$ for some non-zero $\lambda,\mu$. Similarly, $\rho(g)_{|W}=\alpha\text{Id}_W,\rho(h)_{|W}=\beta\text{Id}_W$. Let $u,w$ be non-zero elements of $U$ and $W$ respectively so that they form a basis. Then with respect to the basis, $\rho(g)$ is represented by \[\begin{pmatrix}
+\lambda & 0 \\
+0 & \alpha
+\end{pmatrix}\] and $\rho(h)$ is represented by\[\begin{pmatrix}
+\mu & 0 \\
+0 & \beta
+\end{pmatrix}.\] But then $\rho(g)\rho(h)$ and $\rho(h)\rho(g)$ are both represented by \[\begin{pmatrix}
+\lambda\mu & 0 \\
+0 & \alpha\beta
+\end{pmatrix}.\] so are equal; a contradiction. Thus $V$ must be irreducible.
 
+
+\[\begin{pmatrix}
+\omega & 0 \\
+0 & \omega^{-1}
+\end{pmatrix}\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}=
+\begin{pmatrix}
+0 & \omega \\
+\omega^{-1} & 0
+\end{pmatrix}.\]
+\[
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}\begin{pmatrix}
+\omega & 0 \\
+0 & \omega^{-1}
+\end{pmatrix}=
+\begin{pmatrix}
+0 & \omega^{-1} \\
+\omega & 0
+\end{pmatrix}.
+\]
+Thus $\text{Im }\rho$ is not abelian so the representation is irreducible.
+
+
+
+
+Let $\pi_U$ and $\pi_W$ be the projections onto $U$ and $W$ respectively. Then $\rho(g)=\lambda\pi_U+\alpha\pi_W,\rho(g)=\lambda\pi_U+\alpha\pi_W$
+\end{proof}
 
 \end{document}
