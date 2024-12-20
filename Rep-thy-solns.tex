@@ -435,4 +435,85 @@ Suppose that $V$ is reducible. Then by Maschke's theorem $V=U\oplus W$ where $U$
 Thus $\text{Im }\rho$ is not abelian so the representation is irreducible.
 \end{proof}
 
+
+Below \( G \) is a finite group and the base field is \( \mathbb{C} \).  
+Also, \( C_n \) denotes the group of \( n \)-th roots of unity, a cyclic subgroup of \( \mathbb{C}^* = \mathbb{C} \setminus \{ 0 \} \).
+
+\begin{exercise}
+     Prove directly that, if \( V \) is a \( G \)-module with irreducible decomposition 
+    \[
+    V = V_1 \oplus \cdots \oplus V_n
+    \]
+    and \( W \) is any irreducible submodule of \( V \), then \( W \cong V_j \) for some \( j \).
+\end{exercise}
+\begin{proof}
+Let $\pi_i:W\to V_i$ be the projection map onto $V_i$ restricted to $W$. $\text{Id}_W=\sum_i\pi_i$ is non-zero so there must be a non-zero $\pi_i$. By Schur's lemma, this is then an isomorphism.
+\end{proof}
+
+\begin{exercise}
+     Recall that the \textbf{centre} \( Z(G) \) of \( G \) is the subgroup of \( G \) defined by
+    \[
+    Z(G) = \{ z \in G : zg = gz \text{ for all } g \in G \}.
+    \]
+    Let \( V \) be an irreducible \( G \)-module with the corresponding representation \( \rho : G \to \mathrm{GL}(V) \).
+
+    \begin{enumerate}
+        \item[(a)] Show that, for each \( z \in Z(G) \), there is \( \lambda(z) \in \mathbb{C}^* \) such that, for all \( v \in V \),
+        \[
+        z\cdot v = \lambda(z)v.
+        \]
+        (Hint: use Schur's Lemma.)
+
+        \item[(b)] Show that \( z \mapsto \lambda(z) \) is a group homomorphism \( Z(G) \to \mathbb{C}^* \).
+
+        \item[(c)] Deduce that, if \( \rho \) is faithful, then \( Z(G) \) is cyclic. (Hint: consider \( \rho(Z(G)) \) as a subgroup of \( \mathbb{C}^* \).)
+
+        \item[(d)] Which of the following groups have a faithful irreducible representation: \( C_n \), \( D_8 \), \( C_2 \times D_8 \)?
+    \end{enumerate}
+\end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Given any $g\in G$, $z\cdot(g\cdot v)=(zg)\cdot v=(gz)\cdot v=g\cdot(z\cdot v)$ so $\rho(z)$ is $G$-linear. Thus by Schur's lemma $\rho(z)=\lambda(z)\text{Id}$ for some $\lambda(z)\in\mathbb{C}^*$ (since the map is an isomorhpsm) so $z\cdot v=\lambda(z)v$.
+    \item[(b)] $Z(G)\to GL(V):z\mapsto\lambda(z)\text{Id}$ is a group homomorphism so $z\mapsto\lambda(z)$ clearly is as well.
+    \item[(c)] By the first isomorphism theorem, $Z(G)\cong\rho(Z(G))$ which we can consider to be a subgroup of $\mathbb{C}^*$. All subgroups of $\mathbb{C}^*$ are cyclic so $Z(G)$ is cyclic.
+    \item[(d)] $C_n$ has a faithful irreducible representation given by $\rho:C_n\to \mathbb{C}^*:\omega\mapsto\omega$. 
+
+    $D_8$ has a faithful irreducible representation $\rho:D_8\to GL(n,\mathbb{C})$ given by\[\rho(\tau)=\begin{pmatrix}
+\omega & 0 \\
+0 & \omega^{-1}
+\end{pmatrix},\rho(\sigma)=\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}\] where $\omega=e^\frac{2\pi i}{4}$.
+
+$Z(D_8)=\{e,\tau^2\}$ so $Z(C_2\times D_8)=\{(1,e),(-1,e),(1,\tau^2),(-1,\tau^2)\}\cong \mathbb{Z}_2\times\mathbb{Z}_2$ which is not cyclic so there is no faithful irreducible representation of $C_2\times D_8$.
+\end{enumerate}
+\end{proof}
+
+\begin{exercise}
+     Decompose the regular module \( \mathbb{C}C_3 \) as a direct sum of irreducible submodules.
+\end{exercise}
+
+
+\begin{exercise}
+     Let \( \tau = (123) \) and \( \sigma = (12) \), which generate \( S_3 \). Decompose the regular module \( \mathbb{C}S_3 \) into a direct sum of its irreducible submodules by completing the following steps.
+    
+    \begin{enumerate}
+        \item[(a)] Show that the subspaces 
+        \[
+        U_1 = \text{span}\{\delta_e, \delta_{(123)}, \delta_{(132)}\}, \quad 
+        U_2 = \text{span}\{\delta_{(12)}, \delta_{(23)}, \delta_{(13)}\}
+        \]
+        of \( \mathbb{C}S_3 \) are closed under the action of \( \tau \).
+
+        \item[(b)] Find the eigenvectors \( v_1, v_2, v_3 \) of \( \tau \) in \( U_1 \) and compute \( \sigma v_1, \sigma v_2, \sigma v_3 \).
+
+        \item[(c)] Find 4 irreducible submodules \( V_1, V_2, V_3, V_4 \) of \( \mathbb{C}S_3 \) of degrees 1, 1, 2, 2, respectively, so that 
+        \[
+        \mathbb{C}S_3 = V_1 \oplus V_2 \oplus V_3 \oplus V_4.
+        \]
+        (Hint: recall the classification of representations of \( S_3 \) in Section 1.7.)
+    \end{enumerate}
+\end{exercise}
+
 \end{document}
