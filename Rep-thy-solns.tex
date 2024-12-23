@@ -517,5 +517,41 @@ let $\omega=e^{\frac{2\pi i}{3}}$. $C_3$ is abelian so every irreducible submodu
         (Hint: recall the classification of representations of \( S_3 \) in Section 1.7.)
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)]$(123)\cdot\delta_e=\delta_{(123)},(123)\cdot\delta_{(123)}=\delta_{(132)},(123)\cdot\delta_{(132)}=\delta_{e}$ so $U_1$ is closed under $\tau$. $(123)\cdot\delta_{(12)}=\delta_{(13)},(123)\cdot\delta_{(23)}=\delta_{(21)},(123)\cdot\delta_{(13)}=\delta_{(23)}$ so $U_2$ is closed under $\tau$.
+    \item[(b)]The action of $\tau$ with respect to $\delta_e,\delta_{(123)},\delta_{(132)}$ is represented by\[\begin{pmatrix}
+0 & 0 & 1 \\
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+\end{pmatrix}\] which has eigenvectors \[\begin{pmatrix}
+    1\\
+    1\\
+    1\\
+\end{pmatrix},\begin{pmatrix}
+    \omega\\
+    \omega^2\\
+    1\\
+\end{pmatrix},\begin{pmatrix}
+    \omega^2\\
+    \omega\\
+    1\\
+\end{pmatrix}\] with corresponding eigenvalues\[\lambda_1=1,\lambda_2=\omega^2,\lambda_3=\omega.\] where $\omega=e^{\frac{2\pi i}{3}}$ so the eigenvectors (up to a scalar) of $\tau$ in $U_1$ are \begin{align*}
+    v_1&=\delta_e+\delta_{(123)}+\delta_{(132)},\\v_2&=\omega\delta_e+\omega^2\delta_{(123)}+\delta_{(132)},\\v_3&=\omega^2\delta_e+\omega\delta_{(123)}+\delta_{(132)}.
+    \end{align*}
+    $\sigma\cdot\delta_{e}=\delta_{(12)},\sigma\cdot\delta_{(123)}=\delta_{(23)},\sigma\cdot\delta_{(132)}=\delta_{(13)}$ so
+\begin{align*}
+    \sigma\cdot v_1&=\delta_{(12)}+\delta_{(23)}+\delta_{(13)},\\\sigma\cdot v_2&=\omega\delta_{(12)}+\omega^2\delta_{(23)}+\delta_{(13)},\\\sigma\cdot v_3&=\omega^2\delta_{(12)}+\omega\delta_{(23)}+\delta_{(13)}.
+    \end{align*}
+\item[(c)] Note that $\sigma\cdot v_1$ is an eigenvector of $\tau$ with eigenvalue $1$, $\sigma\cdot v_2$ is an eigenvector of $\tau$ with eigenvalue $\omega$ and $\sigma\cdot v_3$ is an eigenvector of $\tau$ with eigenvalue $\omega^2$.
 
+Let $V_1=\langle v_1+\sigma\cdot v_1\rangle$. Then $\tau\cdot(v_1+\sigma\cdot v_1)=v_1+\sigma\cdot v_1$ and $\sigma\cdot(v_1+\sigma\cdot v_1)=v_1+\sigma\cdot v_1$ so $V_1$ has dimension $1$ and both $\tau$ and $\sigma$ act as the identity.
+
+Let $V_2=\langle v_1-\sigma\cdot v_1\rangle$. Then $\tau\cdot(v_1-\sigma\cdot v_1)=v_1-\sigma\cdot v_1$ and $\sigma\cdot(v_1-\sigma\cdot v_1)=-(v_1-\sigma\cdot v_1)$ so $V_1$ has dimension $1$, $\tau$ acts as the identity and $\sigma$ acts as $-\text{Id}_{V_2}$.
+
+Finally, let $V_3=\text{span}\{v_2,\sigma\cdot v_2\}$ and let $V_4=\text{span}\{v_3,\sigma\cdot v_3\}$.
+
+Since $(v_1,\sigma\cdot v_1),(v_2,\sigma\cdot v_3),(v_3,\sigma\cdot v_2)$ are linearly independent pairs of eigenvectors with distinct eigenvalues, we have that $\mathbb{C}S_3=\text{span}\{v_1,\sigma\cdot v_1\}\oplus\text{span}\{v_2,\sigma\cdot v_3\}\oplus\text{span}\{v_3,\sigma\cdot v_2\}$ as vector spaces. Thus $\mathbb{C}S_3=V_1\oplus V_2\oplus V_3\oplus V_4$.
+\end{enumerate}
+\end{proof}
 \end{document}
