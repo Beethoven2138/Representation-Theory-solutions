@@ -627,5 +627,11 @@ Since $(v_1,\sigma\cdot v_1),(v_2,\sigma\cdot v_3),(v_3,\sigma\cdot v_2)$ are pa
 Conjugacy classes partition $G$ so $\mathbb{C}_{\text{cls}}G$ is clearly a well-defined linear subspace of $\mathbb{C}G$. Let $g_1^G,...,g_n^G$ be a complete list of conjugacy classes in $G$. Define $f_i\in \mathbb{C}G$ by $f_i(x)=1\forall x\in g_i^G$ and $f_i(x)=0$ otherwise. $f_1,...,f_n$ then forms a basis of $\mathbb{C}_{\text{cls}}G$ and $n$ is the number of conjugacy classes in $G$.
 \end{proof}
 
+\begin{lemma}
+Let $\rho_1:G\to GL(V_1)$ and $\rho_2:G\to GL(V_2)$ be equivalent representations. Then there exist bases of $V_1$ and $V_2$ such that the corresponding matrix representations of $\rho_1$ and $\rho_2$ are equal.
+\end{lemma}
+\begin{proof}
+Since $\rho_1$ and $\rho_2$ are equivalent there exists a $G$-linear isomorphism $\theta:V_1\to V_2$ such that $\theta\rho_1(g)\theta^{-1}=\rho_2(g)\forall g\in G$. Let $\alpha_1,...,\alpha_n$ be a basis of $V_1$. Then $\theta(\alpha_1),...,\theta(\alpha_n)$ is a basis for $V_2$. Furthermore, $\rho_2(g)(\theta(\alpha_i))=\theta(\rho_1(g)(\alpha_i))\forall i$ so if $\rho_1(g)(\alpha_i)=\lambda_1\alpha_1+...+\lambda_n\alpha_n$ then $\rho_2(g)(\theta(\alpha_i))=\lambda_1\theta(\alpha_1)+...+\lambda_n\theta(\alpha_n)$. $(\lambda_1,...,\lambda_n)$ is the $i$th column of the matrix representing $\rho_1(g)$ with respect to $\alpha_1,...,\alpha_n$ and the matrix representing $\rho_2(g)$ with respect to $\theta(\alpha_1),...,\theta(\alpha_n)$ so the matrices are the same.
+\end{proof}
 
 \end{document}
