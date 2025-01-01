@@ -627,6 +627,145 @@ Since $(v_1,\sigma\cdot v_1),(v_2,\sigma\cdot v_3),(v_3,\sigma\cdot v_2)$ are pa
 Conjugacy classes partition $G$ so $\mathbb{C}_{\text{cls}}G$ is clearly a well-defined linear subspace of $\mathbb{C}G$. Let $g_1^G,...,g_n^G$ be a complete list of conjugacy classes in $G$. Define $f_i\in \mathbb{C}G$ by $f_i(x)=1\forall x\in g_i^G$ and $f_i(x)=0$ otherwise. $f_1,...,f_n$ then forms a basis of $\mathbb{C}_{\text{cls}}G$ and $n$ is the number of conjugacy classes in $G$.
 \end{proof}
 
+\begin{exercise}
+Any element in \( S_n \) can be written as a product of disjoint cycles, and the list of the sizes of the cycles (ordered from big to small) is called the \textit{cycle shape} of the element. Two elements in \( S_n \) are conjugate if and only if they have the same cycle shape.
+    \begin{itemize}
+        \item[(a)] For each conjugacy class in the symmetric group \( S_4 \), compute the size of the class and also find \( C(g) \) for one \( g \) in that class.
+        \item[(b)] List the shapes of the conjugacy classes in the symmetric group \( S_5 \) and compute the size of each class.
+    \end{itemize}
+\end{exercise}
+\begin{proof}
+\begin{itemize}
+    \item[(a)] $1+1+1+1=2+1+1=2+2=3+1=4$
+    $\{(1234),(2134),(1243),(3214),\}$
+    
+    For the conjugacy class of cycles of type $(4)$:
+    The conjugacy class $(1234)^{S_4}$ has $6$ elements and $C((1234))=\langle (1234)\rangle$.
+
+    For the conjugacy class of cycles of type $(3,1)$:
+    The conjugacy class $(123)^{S_4}$ has ${4\choose3}\cdot 2=8$ elements and $C((123))=\langle(123)\rangle$.
+
+    For the conjugacy class of cycles of type $(2,2)$:
+    The conjugacy class $((12)(34))^{S_4}$ has $3$ elements and $C((12)(34))=\{e,(12),(34),(12)(34),(13)(24),(14)(32),(1324),(1423)\}$.
+
+    For the conjugacy class of cycles of type $(2,1,1)$:
+    The conjugacy class $(12)^{S_4}$ has ${4\choose 2}=6$ elements and $C((12))=\{e,(34),(12)(34)\}$.
+
+    For the conjugacy class of cycles of type $(1,1,1,1)$:
+    The conjugacy class $()^{S_4}$ has $1$ element and $C(())=S_4$.
+
+    $6+8+3+6+1=24=|S_4|$ as expected.
+    \item[(b)] The shapes conjugacy types are\begin{align*}
+        (5)\\
+        (4,1)\\
+        (3,2)\\
+        (3,1,1)\\
+        (2,2,1)\\
+        (2,1,1,1)\\
+        (1,1,1,1,1)
+    \end{align*}
+    There are $4!=24$ elements with cycle type $(5)$.
+
+    There are ${5\choose 4}\cdot 3!=30$ elements with cycle type $(4,1)$.
+
+    There are ${5\choose 3}\cdot 2=20$ elements with cycle type $(3,2)$.
+
+    There are $20$ elements with cycle type $(3,1,1)$.
+
+    There are ${5\choose 4}\cdot=15$ elements with cycle type $(2,2,1)$.
+
+    There are ${5\choose 2}=10$ elements with cycle type $(2,1,1,1,1)$.
+
+    There is $1$ element with cycle type $(1,1,1,1,1)$.
+
+    $24+30+20+20+15+10+1=120=|S_5|$ as expected.
+\end{itemize}
+\end{proof}
+
+\begin{exercise}
+For any \( g \in G \), recall that \( Z(G) \leq C(g) \leq G \).
+    \begin{itemize}
+        \item[(a)] If \( g \in G \setminus Z(G) \), show that both inclusions are strict. Deduce that the index of \( Z(G) \) in \( G \) (i.e., \( |G|/|Z(G)| \)) cannot be prime.
+        \item[(b)] If \( |G| = 12 \) and \( G \) is non-abelian, show that \( G \) has at most 7 conjugacy classes.
+        \item[(c)] If \( |G| = 12 \) and \( G \) is non-abelian, show that \( |Z(G)| \) is 1 or 2.
+    \end{itemize}
+\end{exercise}
+    
+
+\begin{exercise}
+\[
+\langle \phi, \psi \rangle = \frac{1}{|G|} \sum_{g \in G} \phi(g) \psi(g)
+\]
+makes \( \mathbb{C}G \) into a unitary \( G \)-module.
+\end{exercise}
+
+\begin{exercise}
+Let \( \alpha: G \to \mathrm{GL}(V) \) be a representation of \( G \) with character \( \chi \), and let \( \psi \) be a linear character of \( G \). Show that the map
+\[
+\psi \alpha: G \to \mathrm{GL}(V), \quad g \mapsto \psi(g) \alpha(g)
+\]
+is a representation of \( G \) with character \( \psi \chi \). Show further that \( \psi \alpha \) is irreducible if and only if \( \alpha \) is irreducible.
+\end{exercise}
+
+\begin{exercise}
+Let \( \chi_1, \ldots, \chi_n \) be a complete set of irreducible characters, and let \( \chi_{\text{reg}} \) be the regular character. By writing \( \chi_{\text{reg}} = \sum_i a_i \chi_i \) and using the orthonormality of the \( \chi_i \), show that \( a_i = \chi_i(1) \) and deduce that
+\[
+|G| = \chi_{\text{reg}}(1) = \sum_{i=1}^n \chi_i(1)^2.
+\]
+\end{exercise}
+
+\begin{exercise}
+ Show that the converse of Lemma 5.25 is true, namely that, if \( f \in \mathbb{C}G \) and the map
+    \[
+    T_V(f) : V \to V : v \mapsto \sum_{g \in G} f(g)gv
+    \]
+    is \( G \)-linear for every \( G \)-module \( V \), then \( f \) is a class function. [Hint: take \( V = \mathbb{C}G \).]
+    
+    \item The vector space \( \mathbb{C}G = \{ f : G \to \mathbb{C} \} \) can be made into an algebra using the convolution product \( * \), defined as follows:
+    \[
+    (f_1 * f_2)(g) = \sum_{h_1h_2 = g} f_1(h_1)f_2(h_2).
+    \]
+    [You can assume without proof that this does define an algebra, but it is not hard to check.]
+
+    \begin{enumerate}
+        \item Show that \( \delta_g * \delta_h = \delta_{gh} \) and that \( * \) is the unique bilinear extension of this rule.
+        \item For the map \( T_V : \mathbb{C}G \to \text{Hom}_{\mathbb{C}}(V, V) \) in Q1, show that \( T_V(f_1 * f_2) = T_V(f_1) \circ T_V(f_2) \), where \( \circ \) is composition of linear operators.
+        \item Show that the center of \( \mathbb{C}G \), that is, \( Z(\mathbb{C}G) = \{ z \in \mathbb{C}G \mid z * f = f * z, \, \forall f \in \mathbb{C}G \} \), is precisely \( \mathbb{C} \text{cl}_G \).
+    \end{enumerate}
+\end{exercise}
+\begin{exercise}
+    Let \( G \) be a group of order 4. Using just properties of character tables, i.e., without explicitly identifying the group, complete the following partial character table of \( G \).
+
+    \[
+    \begin{array}{c|cccc}
+    g_i & g_1 = 1 & g_2 & g_3 & g_4 \\
+    \hline
+    \chi_1 & 1 & 1 & 1 & 1 \\
+    \chi_2 & 1 & i & -1 & -i \\
+    \chi_3 & 1 & -1 & 1 & -1 \\
+    \chi_4 & 1 & -i & -1 & i \\
+    \end{array}
+    \]
+\end{exercise}
+\begin{exercise}
+    Let \( G \) be a group of order 18. Complete the partial character table of \( G \) below.
+
+    \[
+    \begin{array}{c|cccccc}
+    g_i & g_1 = 1 & g_2 & g_3 & g_4 & g_5 & g_6 \\
+    |C(g_i)| & 18 & 9 & 9 & 9 & 9 & 2 \\
+    \hline
+    \chi_1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    \chi_2 & 1 & 1 & 1 & 1 & 1 & -1 \\
+    \chi_3 & 2 & 2 & -1 & -1 & -1 & 0 \\
+    \chi_4 & -1 & 2 & 2 & -1 & -1 & 0 \\
+    \chi_5 & -1 & -1 & -1 & -1 & -1 & 1 \\
+    \chi_6 & 2 & 2 & 0 & 0 & 0 & -2 \\
+    \end{array}
+    \]
+\end{exercise}
+
+
 \begin{lemma}
 Let $\rho_1:G\to GL(V_1)$ and $\rho_2:G\to GL(V_2)$ be equivalent representations. Then there exist bases of $V_1$ and $V_2$ such that the corresponding matrix representations of $\rho_1$ and $\rho_2$ are equal.
 \end{lemma}
