@@ -683,13 +683,20 @@ Any element in \( S_n \) can be written as a product of disjoint cycles, and the
 \end{proof}
 
 \begin{exercise}
-For any \( g \in G \), recall that \( Z(G) \leq C(g) \leq G \).
+For any \( g \in G \), recall that \( Z(G) \leqslant C(g) \leqslant G \).
     \begin{itemize}
         \item[(a)] If \( g \in G \setminus Z(G) \), show that both inclusions are strict. Deduce that the index of \( Z(G) \) in \( G \) (i.e., \( |G|/|Z(G)| \)) cannot be prime.
         \item[(b)] If \( |G| = 12 \) and \( G \) is non-abelian, show that \( G \) has at most 7 conjugacy classes.
         \item[(c)] If \( |G| = 12 \) and \( G \) is non-abelian, show that \( |Z(G)| \) is 1 or 2.
     \end{itemize}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] $g\in C(g)$ so $Z(G)<C(g)$. $C(g)<G$ since otherwise $g$ would commute with every element of $G$ and so be in the centre. Suppose that the index of $Z(G)$ in $G$ is prime. Then $|Z(G)|=\frac{|G|}{p}$ for some prime $p$. We also have $|Z(G)|=\frac{|C(g)|}{a}$ and $|C(g)|=\frac{|G|}{b}$ for $a,b>1$. Thus $|Z(G)|=\frac{|G|}{ab}=\frac{|G|}{p}$ so $p=ab$. But $p$ is prime; a contradiction.
+    \item[(b)] Let $k$ be the index of $Z(G)$ in $G$. $k$ cannot be prime by $(a)$ so is either $4,6$ or $12$ meaning that $|Z(G)|$ is at most $3$. To maximize the number of conjugacy classes, we must maximize the order of the centre, so let the centre have order $3$. There are then at most $\frac{12-3}{2}=4.5$ conjugacy classes of size larger than $1$ so $G$ has at most $3+4=7$ conjugacy classes.
+    \item[(c)] Suppose $|Z(G)|=3$. Let $g\in G \setminus Z(G)$. Then $3<|C(g)|<12$ and $3| |C(g)| | 12$ so $|C(g)|=6$. But then the size of every conjugacy class larger than $1$ is $2$ implying that the order of $G$ is odd; a contradiction. Thus $|Z(G)|$ is $1$ or $2$.
+\end{enumerate}
+\end{proof}
     
 
 \begin{exercise}
@@ -698,6 +705,9 @@ For any \( g \in G \), recall that \( Z(G) \leq C(g) \leq G \).
 \]
 makes \( \mathbb{C}G \) into a unitary \( G \)-module.
 \end{exercise}
+\begin{proof}
+Let $h\in G$ and $\phi,\psi\in\mathbb{C}G$. Then $\langle h\phi,h\psi\rangle=\frac{1}{|G|}\sum_{g\in G}\phi(h^{-1}g)\psi(h^{-1}g)=\langle\phi,\psi\rangle$ since $G\to G:g\mapsto h^{-1}g$ is a bijection.
+\end{proof}
 
 \begin{exercise}
 Let \( \alpha: G \to \mathrm{GL}(V) \) be a representation of \( G \) with character \( \chi \), and let \( \psi \) be a linear character of \( G \). Show that the map
@@ -706,6 +716,9 @@ Let \( \alpha: G \to \mathrm{GL}(V) \) be a representation of \( G \) with chara
 \]
 is a representation of \( G \) with character \( \psi \chi \). Show further that \( \psi \alpha \) is irreducible if and only if \( \alpha \) is irreducible.
 \end{exercise}
+\begin{proof}
+$\phi$ is linear so $\psi(g)\neq 0 \forall G$. Thus the codomain of $\psi\alpha$ is well-defined. Let $g,h\in G$. Then $\psi\alpha(gh)=\psi(gh)\alpha(gh)=\psi(g)\psi(h)\alpha(g)\alpha(h)=\psi_\alpha(g)\psi_\alpha(h)$ so $\psi\alpha$ is a representation. $\text{tr }\psi(g)\alpha(g)=\psi(g)\text{tr }\alpha(g)=\psi(g)\chi(g)\forall g\in G$ so the character of $\psi\alpha$ is $\psi\chi$. $\psi\alpha$ is irreducible $\iff\langle\psi\chi,\psi\chi\rangle=1\iff \frac{1}{|G|}\sum_{g\in G}\overline{\psi(g)\chi(g)}\psi(g)\chi(g)=\frac{1}{|G|}\sum_{g\in G}\psi(g^{-1})\psi(g)\overline{\chi(g)}\chi(g)=\langle\chi,\chi\rangle=1\iff\alpha$ is irreducible. 
+\end{proof}
 
 \begin{exercise}
 Let \( \chi_1, \ldots, \chi_n \) be a complete set of irreducible characters, and let \( \chi_{\text{reg}} \) be the regular character. By writing \( \chi_{\text{reg}} = \sum_i a_i \chi_i \) and using the orthonormality of the \( \chi_i \), show that \( a_i = \chi_i(1) \) and deduce that
@@ -713,6 +726,9 @@ Let \( \chi_1, \ldots, \chi_n \) be a complete set of irreducible characters, an
 |G| = \chi_{\text{reg}}(1) = \sum_{i=1}^n \chi_i(1)^2.
 \]
 \end{exercise}
+\begin{proof}
+$a_i=\langle\chi_{\text{reg}},\chi_i\rangle=\frac{1}{|G|}\sum_{g\in G}\overline{\chi_{\text{reg}}(g)}\chi_i(g)=\frac{|G|\chi_i(1)}{|G|}=\chi_i(1)$.
+\end{proof}
 
 \begin{exercise}
  Show that the converse of Lemma 5.25 is true, namely that, if \( f \in \mathbb{C}G \) and the map
@@ -740,10 +756,10 @@ Let \( \chi_1, \ldots, \chi_n \) be a complete set of irreducible characters, an
     \begin{array}{c|cccc}
     g_i & g_1 = 1 & g_2 & g_3 & g_4 \\
     \hline
-    \chi_1 & 1 & 1 & 1 & 1 \\
-    \chi_2 & 1 & i & -1 & -i \\
-    \chi_3 & 1 & -1 & 1 & -1 \\
-    \chi_4 & 1 & -i & -1 & i \\
+    \chi_1 &  & 1 &  &  \\
+    \chi_2 &  & i &  &  \\
+    \chi_3 &  & -1 &  &  \\
+    \chi_4 &  & -i &  &  \\
     \end{array}
     \]
 \end{exercise}
@@ -755,16 +771,29 @@ Let \( \chi_1, \ldots, \chi_n \) be a complete set of irreducible characters, an
     g_i & g_1 = 1 & g_2 & g_3 & g_4 & g_5 & g_6 \\
     |C(g_i)| & 18 & 9 & 9 & 9 & 9 & 2 \\
     \hline
-    \chi_1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    \chi_1 & 1 &   &   &   &   &   \\
     \chi_2 & 1 & 1 & 1 & 1 & 1 & -1 \\
     \chi_3 & 2 & 2 & -1 & -1 & -1 & 0 \\
-    \chi_4 & -1 & 2 & 2 & -1 & -1 & 0 \\
-    \chi_5 & -1 & -1 & -1 & -1 & -1 & 1 \\
-    \chi_6 & 2 & 2 & 0 & 0 & 0 & -2 \\
+    \chi_4 &  & -1 & 2 &  & -1 &  \\
+    \chi_5 &  & -1 &  &  & -1 &  \\
+    \chi_6 &   &   &  &  & 2 &  \\
     \end{array}
     \]
 \end{exercise}
 
+\begin{exercise}
+Let $\mathbb{F}$ be a field which is (i) algebraically closed and (ii) of characteristic zero. Suppose that a $G$-module $V$ over $\mathbb{F}$ has two irreducible decompositions
+\[
+U_1 \oplus \cdots \oplus U_s = V = W_1 \oplus \cdots \oplus W_t,
+\]
+that is, where all $U_i$ and $W_j$ are irreducible.
+
+\begin{enumerate}
+    \item[(a)] Explain why each $U_i$ is isomorphic to some $W_j$ (and vice versa).
+    \item[(b)] Explain why $s = t$.
+    \item[(c)] For the arguments used in (a) and (b), say whether the assumptions (i) or (ii) on $\mathbb{F}$ are needed.
+\end{enumerate}
+\end{exercise}
 
 \begin{lemma}
 Let $\rho_1:G\to GL(V_1)$ and $\rho_2:G\to GL(V_2)$ be equivalent representations. Then there exist bases of $V_1$ and $V_2$ such that the corresponding matrix representations of $\rho_1$ and $\rho_2$ are equal.
