@@ -736,8 +736,12 @@ $a_i=\langle\chi_{\text{reg}},\chi_i\rangle=\frac{1}{|G|}\sum_{g\in G}\overline{
     T_V(f) : V \to V : v \mapsto \sum_{g \in G} f(g)gv
     \]
     is \( G \)-linear for every \( G \)-module \( V \), then \( f \) is a class function. [Hint: take \( V = \mathbb{C}G \).]
-    
-    \item The vector space \( \mathbb{C}G = \{ f : G \to \mathbb{C} \} \) can be made into an algebra using the convolution product \( * \), defined as follows:
+\end{exercise}
+\begin{proof}
+$\forall p\in \mathbb{C}G,a\in G$ have $aT_v(f)(p)=T_v(f)(ap)$ so $\sum_{g\in G}f(g)(ag)\cdot p=\sum_{g\in G}f(g)(ga)\cdot p$. Let $h,s\in G$. Then $\sum_{g\in G}f(g)(h^{-1}g)\cdot \delta_h=\sum_{g\in G}f(g)(gh^{-1})\cdot \delta_h\implies \sum_{g\in G}f(g)\delta_{h^{-1}gh}=\sum_{g\in G}f(g)\delta_{g}\implies f(h^{-1}sh)=f(s)$. This is true for every $s,h\in G$ so $f$ is a class function.
+\end{proof}
+\begin{exercise}
+    The vector space \( \mathbb{C}G = \{ f : G \to \mathbb{C} \} \) can be made into an algebra using the convolution product \( * \), defined as follows:
     \[
     (f_1 * f_2)(g) = \sum_{h_1h_2 = g} f_1(h_1)f_2(h_2).
     \]
@@ -746,9 +750,18 @@ $a_i=\langle\chi_{\text{reg}},\chi_i\rangle=\frac{1}{|G|}\sum_{g\in G}\overline{
     \begin{enumerate}
         \item Show that \( \delta_g * \delta_h = \delta_{gh} \) and that \( * \) is the unique bilinear extension of this rule.
         \item For the map \( T_V : \mathbb{C}G \to \text{Hom}_{\mathbb{C}}(V, V) \) in Q1, show that \( T_V(f_1 * f_2) = T_V(f_1) \circ T_V(f_2) \), where \( \circ \) is composition of linear operators.
-        \item Show that the center of \( \mathbb{C}G \), that is, \( Z(\mathbb{C}G) = \{ z \in \mathbb{C}G \mid z * f = f * z, \, \forall f \in \mathbb{C}G \} \), is precisely \( \mathbb{C} \text{cl}_G \).
+        \item Show that the center of \( \mathbb{C}G \), that is, \( Z(\mathbb{C}G) = \{ z \in \mathbb{C}G \mid z * f = f * z, \, \forall f \in \mathbb{C}G \} \), is precisely \( \mathbb{C}_\text{cls}G \).
     \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item $(\delta_g * \delta_h)(a)=\sum_{h_1h_2=a}\delta_g(h_1)\delta_h(h_2)$. If $a=gh$ then $(\delta_g * \delta_h)(a)=1$. Otherwise, $(\delta_g * \delta_h)(a)=0$. Thus $\delta_g * \delta_h=\delta_{gh}$. Let $g_1,...,g_n$ be the complete list of elements of $G$. let $f_1=\sum_i\lambda_i\delta_{g_i},f_2=\sum_i\mu_i\delta_{g_i}$ for $\lambda_i,\mu_i\in\mathbb{C}$. Then $f_1*f_2=\sum_{i,j}\lambda_i\mu_j\delta_{g_ig_j}$ so $(f_1*f_2)(g_k)=\sum_{i,j,g_ig_j=g_k}\lambda_i\mu_j=\sum_{i,j,g_ig_j=g_k}f_1(g_i)f_2(g_j)=\sum_{h_1h_2=g_k}f_1(h_1)f_2(h_2)$ so $*$ is the unique bilinear extension of the rule.
+    \item $T_V(f_1*f_2)(v)=\sum_{g\in G}(f_1*f_2)(g)(g\cdot v)=\sum_{g\in G}\sum_{h_1h_2=g}f_1(h_1)f_2(h_2)(g\cdot v)=\sum_{h_1,h_2}f_1(h_1)f_2(h_2)((h_1h_2)\cdot v)=\sum_{h_1}f_1(h_1)\sum_{h_2}f_2(h_2)(h_1\cdot(h_2\cdot v))=\sum_{h_1}f_1(h_1)h_1\cdot(\sum_{h_2}f_2(h_2)h_2\cdot v)=\sum_{h_1}f_1(h_1)h_1\cdot T_V(f_2)(v)=T_V(f_1)\circ T_V(f_2)(v)\forall v\in V$.
+    \item Let $z\in Z(\mathbb{C}G)$. Then for every $G$-module $V$ and $f\in \mathbb{C}G$ we have $T_V(z)\circ T_V(f)=T_V(f)\circ T_V(z)$. Let $h\in G$. Then $T_V(z)(hv)=\sum_{g\in G}z(g)(gh v)=\sum_{g\in G}z(g)g\sum_{a\in G}\delta_h(a) av=\sum_{g\in G}z(g)gT_V(\delta_h)(v)=T_V(z)\circ T_V(\delta_h)(v)=T_V(\delta_h)\circ T_V(z)(v)=\sum_{g\in G}\delta_h(g)gT_V(z)(v)=hT_V(z)(v)\forall v\in V$. Thus $T_V(z)$ is $G$-linear for every $G$-module $V$ so $z\in\mathbb{C}_\text{cls}G$.
+
+    Now let $z\in\mathbb{C}_\text{cls}G$. Then given any $h,g\in G$ we have $(z*\delta_h)(g)=\sum_{h_1h_2=g}z(h_1)\delta_h(h_2)=z(gh^{-1})$ and $(\delta_h*z)(g)=\sum_{h_1h_2=g}\delta_h(h_1)z(h_2)=z(h^{-1}g)$. $(gh^{-1})^h=h^{-1}gh^{-1}h=h^{-1}g$ so $z*\delta_h=\delta_h*z$. $\{\delta_h:h\in G\}$ is a basis of $\mathbb{C}G$ so $z*f=f*z\forall f\in\mathbb{C}G$. Thus $z\in Z(\mathbb{C}G)$.
+\end{enumerate}
+\end{proof}
 \begin{exercise}
     Let \( G \) be a group of order 4. Using just properties of character tables, i.e., without explicitly identifying the group, complete the following partial character table of \( G \).
 
@@ -763,6 +776,21 @@ $a_i=\langle\chi_{\text{reg}},\chi_i\rangle=\frac{1}{|G|}\sum_{g\in G}\overline{
     \end{array}
     \]
 \end{exercise}
+\begin{proof}
+$\chi_1$ is the trivial character. so the first row is all $1$s.
+
+Since there are $4$ characters and the group has order $4$ we have $|g_i^G|=1\forall i$ so $|C(g_i)|=4\forall i$. Thus the group is abelian so $\chi_i(1)=1\forall i$. $i$ is a $4$th root of $1$ and not a first or second root so $g_2$ has order $4$ so is not its own inverse. Let $g_3=g_2^{-1}$. Then $\chi_i(g_3)=\overline{\chi_i(g_2)}\forall i$. Since $g_2$ and $g_3$ both have order $4$ we must have that $g_2^2=g_3^2=g_4$ so $\chi_i(g_4)=\chi_i(g_2)^2\forall i$.
+\[
+    \begin{array}{c|cccc}
+    g_i & g_1 = 1 & g_2 & g_3 & g_4 \\
+    \hline
+    \chi_1 &  1& 1 &  1& 1 \\
+    \chi_2 &  1& i &  -i&-1  \\
+    \chi_3 & 1 & -1 &  -1&1  \\
+    \chi_4 &  1& -i &  i& -1 \\
+    \end{array}
+    \]
+\end{proof}
 \begin{exercise}
     Let \( G \) be a group of order 18. Complete the partial character table of \( G \) below.
 
@@ -780,6 +808,22 @@ $a_i=\langle\chi_{\text{reg}},\chi_i\rangle=\frac{1}{|G|}\sum_{g\in G}\overline{
     \end{array}
     \]
 \end{exercise}
+\begin{proof}
+We have that $\chi_1$ is the trivial characer so the first row is all $1$s. By column orthogonality we have $\sum_{k=1}^n\overline{\chi_k(g_2)}\chi_k(g_5)=0=1+1-2+1+1+2\overline{\chi_6(g_2)}\implies \chi_6(g_2)=-1$. Since $2$ is not a root of unity, we must have that $\chi_3,\chi_4,\chi_6$ have dimension greater than $1$. Suppose one of them has degree $3$. Then by the degre-squared equation $18=\sum_{i=1}^6(\text{dim }\chi_i)^2\geq 1^2+1^2+1^2+2^2+2^2+3^2=20$; a contradiction. Thus no irreducible character has dimension greater than $2$. $1+1+1+4+4+4=15\neq 18$ so we must have $\chi_5(1)=2$. By row orthogonality we have $\sum_{k=1}^6\frac{\overline{\chi_3(g_k)}\chi_4(g_k)}{|C(g_k)|}=\frac{2\cdot 2}{18}+\frac{-2}{9}+\frac{-2}{9}+\frac{-\chi_4(g_4)}{9}+\frac{1}{9}=0\implies \chi_4(g_4)=-1$. Again by row orthogonality we have $\frac{2}{18}-\frac{1}{9}+\frac{2}{9}-\frac{1}{9}-\frac{1}{9}+\frac{\chi_4(g_6)}{2}=0\implies \chi_4(g_6)=0$. By column orthogonality we have $\sum_{k=1}^6\overline{\chi_k(g_6)}\chi_k(g_6)=\sum_{k=1}^6|\chi_k(g_6)|^2=1+1+|\chi_5(g_6)|^2+|\chi_6(g_6)|^2=2\implies \chi_5(g_6)=\chi_5(g_6)=0$. By row orthogonality we have $\frac{4}{18}+\frac{1}{9}+\frac{|\chi_5(g_3)|^2}{9}+\frac{|\chi_5(g_4)|^2}{9}+\frac{1}{9}=1\implies |\chi_5(g_3)|^2+|\chi_5(g_3)|^2=5$. Furthermore, $\frac{4}{18}+\frac{1}{9}+\frac{|\chi_6(g_3)|^2}{9}+\frac{|\chi_6(g_4)|^2}{9}+\frac{4}{9}=1\implies |\chi_6(g_3)|^2+|\chi_6(g_4)|^2=2$. By row orthogonality we have that $\chi_6(g_3)+\chi_6(g_4)\in\mathbb{R}$ and $2\chi_6(g_3)-\chi_6(g_4)\in\mathbb{R}$. so $\chi_6(g_3)$ and hence $\chi_6(g_4)$ are real. By row orthogonality we have $\frac{2}{18}-\frac{1}{9}+\frac{\chi_6(g_3)}{9}+\frac{\chi_6(g_3)}{9}+\frac{2}{9}=0\implies \chi_6(g_3)=\chi_6(g_4)=-1$. By column orthogonality we have $1+1-2+4+2\chi_5(g_3)-2=0$ so $\chi_5(g_3)=-1$. Again by column orthogonality we have $1+1-2-2+2\chi_5(g_4)-2=0$ so $\chi_5(g_4)=2$.
+\[
+    \begin{array}{c|cccccc}
+    g_i & g_1 = 1 & g_2 & g_3 & g_4 & g_5 & g_6 \\
+    |C(g_i)| & 18 & 9 & 9 & 9 & 9 & 2 \\
+    \hline
+    \chi_1 & 1 & 1  & 1  & 1  & 1  & 1  \\
+    \chi_2 & 1 & 1 & 1 & 1 & 1 & -1 \\
+    \chi_3 & 2 & 2 & -1 & -1 & -1 & 0 \\
+    \chi_4 & 2 & -1 & 2 & -1 & -1 & 0 \\
+    \chi_5 & 2 & -1 & -1 & 2 & -1 & 0 \\
+    \chi_6 & 2  &  -1 &  -1&  -1& 2 & 0 \\
+    \end{array}
+    \]
+\end{proof}
 
 \begin{exercise}
 Let $\mathbb{F}$ be a field which is (i) algebraically closed and (ii) of characteristic zero. Suppose that a $G$-module $V$ over $\mathbb{F}$ has two irreducible decompositions
@@ -791,9 +835,14 @@ that is, where all $U_i$ and $W_j$ are irreducible.
 \begin{enumerate}
     \item[(a)] Explain why each $U_i$ is isomorphic to some $W_j$ (and vice versa).
     \item[(b)] Explain why $s = t$.
-    \item[(c)] For the arguments used in (a) and (b), say whether the assumptions (i) or (ii) on $\mathbb{F}$ are needed.
 \end{enumerate}
 \end{exercise}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] $U_i$ is isomorphic to at least one component of the first irreducible decomposition so the multiplicity of $U_i$ in $V$ is greater than zero which implies that $U_i$ is isomorphic to at least one $W_j$ in the second decomposition. The same argument can be applied for $W_j$.
+    \item[(b)] Let $X_1,...,X_n$ be a complete list of submodules in the decomposition $U_1\oplus...\oplus U_s$ up to isomorphism. By (a) this is also a complete list of submodules in the decomposition $W_1\oplus...\oplus W_t$ up to isomorphism, for every $W_j$ is isomorphic to some $U_i$ and thus some $X_k$. Furthermore, for each $k$ the number of submodules in each of the two decompositions which are isomorphic to $X_k$ are the same, for they are both equal to $\text{dim Hom}_G(X_k,V)$. Thus $s=\sum_{k=1}^n\text{dim Hom}_G(X_k,V)=t$.
+\end{enumerate}
+\end{proof}
 
 \begin{lemma}
 Let $\rho_1:G\to GL(V_1)$ and $\rho_2:G\to GL(V_2)$ be equivalent representations. Then there exist bases of $V_1$ and $V_2$ such that the corresponding matrix representations of $\rho_1$ and $\rho_2$ are equal.
